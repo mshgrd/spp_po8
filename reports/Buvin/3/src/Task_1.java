@@ -1,7 +1,19 @@
+import java.util.Scanner;
+
 public class Task_1 {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        RightTriangle triangle = new RightTriangle(3, 4, 5);
+        System.out.println("Введите длину стороны A: ");
+        double sideA = scanner.nextDouble();
+
+        System.out.println("Введите длину стороны B: ");
+        double sideB = scanner.nextDouble();
+
+        System.out.println("Введите длину стороны C: ");
+        double sideC = scanner.nextDouble();
+
+        RightTriangle triangle = new RightTriangle(sideA, sideB, sideC);
 
         System.out.println("Длины сторон исходного треугольника:");
         System.out.println("Сторона A: " + triangle.getSideA());
