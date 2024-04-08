@@ -7,12 +7,12 @@ input = input.ToLower().Replace('ё', 'е');
 while (i1 != i2)
 {
     
-    if (!input[i1].IsLeter())
+    if (!Char.IsLetter(input[i1]))
     {
         i1 += 1;
         continue;
     }
-    if (!input[i2].IsLeter())
+    if (!Char.IsLetter(input[i2]))
     {
         i2 -= 1;
         continue;
