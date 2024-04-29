@@ -25,64 +25,33 @@ public class Bus
 
     public static void ShowAllBuses()
     {
-        foreach (var bus in Buses)
-        {
-            Console.WriteLine(bus);
-        }
+        Buses.ForEach(Console.WriteLine);
+        
     }
     public static void ShowAllBusesEnRoute()
     {
-        foreach (var bus in Buses)
-        {
-            if (bus.Status == BusStatus.EnRoute)
-            {
-                Console.WriteLine(bus);
-            }
-        }
+        Buses.Where(s => s.Status == BusStatus.EnRoute).ToList().ForEach(Console.WriteLine);
     }
     
     public static void ShowAllBusesOnTrip()
     {
-        foreach (var bus in Buses)
-        {
-            if (bus.Status == BusStatus.OnTrip)
-            {
-                Console.WriteLine(bus);
-            }
-        }
+        Buses.Where(s => s.Status == BusStatus.OnTrip).ToList().ForEach(Console.WriteLine);
     }
     
     public static void ShowAllBusesWithRouteNumber(int number)
     {
-        foreach (var bus in Buses)
-        {
-            if (bus.RouteNumber == number)
-            {
-                Console.WriteLine(bus);
-            }
-        }
+        Buses.Where(s => s.RouteNumber == number).ToList().ForEach(Console.WriteLine);
+
     }
 
     public static void ShowAllBusesElder10Years()
     {
-        foreach (var bus in Buses)
-        {
-            if (bus.Year < DateTime.Now.Year - 10)
-            {
-                Console.WriteLine(bus);
-            }
-        }
+        Buses.Where(s => s.Year < DateTime.Now.Year - 10).ToList().ForEach(Console.WriteLine);
     }
 
     public static void ShowAllBusesWithMileage(int mileage)
     {
-        foreach (var bus in Buses)
-        {
-            if (bus.Mileage > mileage)
-            {
-                Console.WriteLine(bus);
-            }
-        }
+        Buses.Where(s => s.Mileage > mileage).ToList().ForEach(Console.WriteLine);
     }
     
     public override string ToString()
