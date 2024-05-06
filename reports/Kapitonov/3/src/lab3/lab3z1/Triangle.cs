@@ -7,11 +7,21 @@ public class Triangle
     public double B { get; set; }
     public double C { get; set; }
 
-    public Triangle(double a, double b, double c)
+    public Triangle(double a, double b, double c) // а - the bigger side
     {
-        A = a;
-        B = b;
-        C = c;
+        if (Math.Pow(A, 2) == Math.Pow(B, 2) + Math.Pow(C, 2))
+        {
+            A = a;
+            B = b;
+            C = c;
+        }
+        else
+        {
+            A = 3;
+            B = 4;
+            C = 5; 
+        }
+        
     }
 
     public Triangle()
@@ -53,41 +63,10 @@ public class Triangle
 
     public bool Exists()
     {
-        
-        if (A > B && A > C)
+        if (Math.Pow(A, 2) == Math.Pow(B, 2) + Math.Pow(C, 2))
         {
-            if (Math.Pow(A,2) == Math.Pow(B,2) + Math.Pow(C,2))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
         }
-        else if (B > C)
-        {
-            if (Math.Pow(B,2) == Math.Pow(A,2) + Math.Pow(C,2))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            if (Math.Pow(C,2) == Math.Pow(B,2) + Math.Pow(A,2))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        
+        return false;
     }
 }
