@@ -1,13 +1,15 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
 public class RandomNumberGenerator {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите число:");
-        int n = scanner.nextInt();
+        if (args.length < 1) {
+            System.out.println("Пожалуйста, введите число как аргумент командной строки.");
+            return;
+        }
+
+        int n = Integer.parseInt(args[0]);
 
         List<Integer> numbers = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
