@@ -53,13 +53,41 @@ public class Triangle
 
     public bool Exists()
     {
-        if (A < B+C && B < A+C && C < A+B)
+        
+        if (A > B && A > C)
         {
-            return true;
+            if (Math.Pow(A,2) == Math.Pow(B,2) + Math.Pow(C,2))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else if (B > C)
+        {
+            if (Math.Pow(B,2) == Math.Pow(A,2) + Math.Pow(C,2))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
-            return false;
+            if (Math.Pow(C,2) == Math.Pow(B,2) + Math.Pow(A,2))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+
+        
     }
 }
