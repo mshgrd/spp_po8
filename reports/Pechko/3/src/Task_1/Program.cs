@@ -28,7 +28,11 @@ namespace Task_1
 
         public void AddToList(int value)
         {
-            _list.Add(value);
+            if (!ContainsEl(value))
+            {
+                _list.Add(value);
+
+            }
         }
         public void PrintValues()
         {
@@ -44,9 +48,9 @@ namespace Task_1
             _list.Remove(number);
             Console.WriteLine($"{number} was removed from {this.name}");
         }
-        public bool Contains(int number)
+        public bool ContainsEl(int number)
         {
-            return _list.Contains(number);
+            return _list.IndexOf(number) != -1;
         }
         public void Intersection(MySet obj)
         {
@@ -54,7 +58,7 @@ namespace Task_1
             List<int> intersection = new List<int>();
             foreach (var item in _list)
             {
-                if (obj.Contains(item))
+                if (obj.ContainsEl(item))
                 {
                     intersection.Add(item);
                 }
