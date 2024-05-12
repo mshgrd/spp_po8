@@ -2,6 +2,7 @@ abstract class Coffee {
     abstract String prepare();
 }
 
+
 class Espresso extends Coffee {
     String prepare() {
         return "Espresso is ready!";
@@ -37,14 +38,32 @@ class CoffeeMachine {
         return coffee.prepare();
     }
 }
+class CoffeeFactory {
+    static Coffee createCoffee(String type) {
+        switch (type) {
+            case "Espresso":
+                return new Espresso();
+            case "Latte":
+                return new Latte();
+            case "Cappuccino":
+                return new Cappuccino();
+            case "Americano":
+                return new Americano();
+            case "Mocha":
+                return new Mocha();
+            default:
+                throw new IllegalArgumentException("Unknown coffee type: " + type);
+        }
+    }
+}
 
 public class task1{
     public static void main(String[] args) {
         CoffeeMachine coffeeMachine = new CoffeeMachine();
-        System.out.println(coffeeMachine.makeCoffee(new Espresso()));
-        System.out.println(coffeeMachine.makeCoffee(new Latte()));
-        System.out.println(coffeeMachine.makeCoffee(new Cappuccino()));
-        System.out.println(coffeeMachine.makeCoffee(new Americano()));
-        System.out.println(coffeeMachine.makeCoffee(new Mocha()));
+        System.out.println(coffeeMachine.makeCoffee(CoffeeFactory.createCoffee("Espresso")));
+        System.out.println(coffeeMachine.makeCoffee(CoffeeFactory.createCoffee("Latte")));
+        System.out.println(coffeeMachine.makeCoffee(CoffeeFactory.createCoffee("Cappuccino")));
+        System.out.println(coffeeMachine.makeCoffee(CoffeeFactory.createCoffee("Americano")));
+        System.out.println(coffeeMachine.makeCoffee(CoffeeFactory.createCoffee("Mocha")));
     }
 }
