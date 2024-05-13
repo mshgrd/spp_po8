@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Zadanie1 {
 	public static void main(String[]args) throws FileNotFoundException {
-		File file = new File("C:\\Users\\Andrey\\Desktop\\data.txt");
+		File file = new File("C:\\Users\\maria\\Desktop\\data.txt");
 		Scanner scanner = new Scanner(file);
 		String str="";
 		String currstr="";
